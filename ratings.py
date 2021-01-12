@@ -23,21 +23,27 @@ def restaurant(filename):
 
     # loop through scores.txt to view all restaurants
     for line in new_file:
-        #word = line.splitlines()
-        #key_only = key_and_value.strip(":  ")
-        #value_only = key_and_value.strip("  :")
         # give 2 variables to store the 2 items from each list
         # rstrip = remove chars from rt end; split method to split by colon
         rest_name, score = line.rstrip().split(":")
         # key=rest_name, value=score
         rest_dict[rest_name] = score
-        #rest_dict[word] = word[-1]
-    print(rest_dict)
+        name = sorted(rest_dict)  # creates list of items from dictionary
+        for idx in name:
+            rating = rest_dict.get(name[idx])  # gets value of "name" item
+            print(f"{name} rating is at {rating}")
+#   print(name)
+
+    # use list items to refer to dictionary and create an f string to print key and value
+    # for item in sorted list:
+    #    get item name
+    #    look up item in dictionary to get value of item from sorted list--> rest_dict.get(name)
+    #    print(f"{item from sorted list} rating is {value from dictionary}")
 
 
 # sort the dictionary items by key (restaurant name)
-
 # return filled, sorted dictionary
+# print(rest_dict)
 # call function
 restaurant("scores.txt")
 
